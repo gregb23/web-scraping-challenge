@@ -11,7 +11,52 @@
 </head>
 
 <body>
-    
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        <h2>Latest Mars News</h2>
+        <h4>{{ mars.headline }}</h4>
+        <p>{{ mars.paragraph }}</p>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col">
+                <h2>Featured Mars Image</h2>
+                <img src="{{ mars.complete_image_url }}" width=100% alt="Mars">
+            </div>
+            <div class="col">
+                <h2>Mars Facts</h2>
+                <div class="table table-striped" width=100%>
+                    {{ mars.mars_html | safe }}
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div class="container" style="margin-top: 30px;">
+    <h2 style="text-align:center">Mars Hemispheres</h2>
+    <hr>
+        <div class="row" style="align-items: center;">
+            <div class="col-6">
+                <img src="{{ mars.astrogeology_image_urls[0].img_url }}" width=100% alt="Cerberus Hemisphere"/>
+                <h2>{{ mars.astrogeology_image_urls[0].title }}</h2>
+            </div>
+            <div class="col-6">
+                <img src="{{ mars.astrogeology_image_urls[1].img_url }}" width=100% alt="Schiaparelli Hemisphere"/>
+                <h2>{{ mars.astrogeology_image_urls[1].title }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <img src="{{ mars.astrogeology_image_urls[2].img_url }}" width=100% alt="Syrtis Hemisphere"/>
+                <h2>{{ mars.astrogeology_image_urls[2].title }}</h2>
+            </div>
+            <div class="col-6">
+                <img src="{{ mars.astrogeology_image_urls[3].img_url }}" width=100% alt="Valles Marineris Hemisphere"/>
+                <h2>{{ mars.astrogeology_image_urls[3].title }}</h2>
+            </div>
+        </div>
+    </div>
+</div>   
 </body>
 
 </html>
